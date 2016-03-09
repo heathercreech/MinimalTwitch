@@ -1,0 +1,29 @@
+body{
+	overflow-x: hidden;
+}
+
+#AppContent{
+	
+}
+
+
+#StreamPreviews{
+	
+	display: flex;
+	flex-wrap: wrap;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.stream-preview-container{
+	flex-grow: 1;
+}
+
+
+.stream-preview{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

@@ -1,0 +1,12 @@
+https://api.twitch.tv/api/channels/manvsgame/access_token
+to get information about files that need to be downloaded
+
+
+http://usher.twitch.tv/api/channel/hls/manvsgame.m3u8?sig=blah&token=blah&p=11330&allow_spectre=true&player=twitchweb&allow_source=true
+to get py-index-live file
+
+use file from above and select one of the urls according to quality you want (source quality selected below -- link expired)
+http://video-edge-82bfe8.ord02.hls.ttvnw.net/hls61/manvsgame_19745428576_405532104/chunked/py-index-live.m3u8?token=id=8733472328848863451,bid=19745428576,exp=1456208298,node=video-edge-82bfe8-1.ord02.hls.justin.tv,nname=video-edge-82bfe8.ord02,fmt=chunked&sig=52f7f1c725668023873f5dbd3b608448aaf7fcc6
+
+chop off everything after "/chunked/" and append the urls from the new m3u8 file one at a time
+http://video-edge-82bfe8.ord02.hls.ttvnw.net/hls61/manvsgame_19745428576_405532104/chunked/blahblah.ts

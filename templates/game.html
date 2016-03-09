@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Game - {{ game_name }}</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/default.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">$SCRIPT_ROOT = {{request.script_root|tojson|safe}};</script>
+	</head>
+	
+	<body>
+		<div id="AppContent">
+			<div id="StreamPreviews">
+				{% for c in game_channels %}
+					<div class="stream-preview-container">
+						<a href="/channel/{{ c['channel']['name'] }}">
+							<image class="stream-preview" src={{ c["preview"]["large"] }}/>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		<script>
+		</script>
+	</body>
+	
+	
+</html>

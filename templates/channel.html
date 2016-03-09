@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Channel - {{ channel }}</title>
+		<link rel="stylesheet" href="//player.twitch.tv/css/player.332a9511.css"/>
+		<link rel="stylesheet" href=" {{ url_for('static', filename='styles/player.css') }} "/>
+		<script src="http://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script>
+		<script type="text/javascript">var Twitch=Twitch||{};Twitch.notScript=!0;</script>
+		<style type="text/css">:root .advertisement, :root .a300, :root #js-esl300, :root #ad {display:none !important;}</style>
+		<script src="//player.twitch.tv/js/jquery.4a54b4c0.js"></script>
+		<script src="//player.twitch.tv/js/jquery-ui.337218f2.js"></script>
+		<script src="//player.twitch.tv/js/chromecast.f895d9e6.js"></script>
+		<script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+		<script src="//player.twitch.tv/js/player.e3985a71.js"></script>
+		<style type="text/css" media="screen">#swfobject-0 {visibility:hidden}</style>
+	</head>
+
+	<body style="margin: 0">
+		<div class="player" id="video-playback" tabindex="0" data-initializing="false" data-paused="false" data-ended="false" data-loading="false" data-controls="false" data-fullscreen="false" data-branding="true" data-advertisement="false" data-theatre="false" data-muted="true" data-casting="unavailable" data-chromecast="false" data-showinfo="true" data-playertype="popout" data-channel="xem92" data-mature="false" data-game="Kingdom Hearts II" data-playlist="false" data-background="false" data-viewers="35">
+			
+		</div>
+
+		<script type="text/javascript">
+			var params={"channel": "{{ channel }}"};
+			var player=new Twitch.video.Player("video-playback",params);
+
+		</script>
+		<iframe name="google_video_inner_static_iframe" id="google_video_inner_static_iframe" src="about:blank" style="height: 0px; width: 0px; display:none"></iframe>
+	</body>
+</html>
