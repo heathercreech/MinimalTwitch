@@ -1,0 +1,6 @@
+.sh
+.cfg
+commit.txt
+info.txt
+*.pyc
+*.pyo

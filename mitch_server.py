@@ -3,9 +3,9 @@ from os import urandom
 
 from flask import Flask, session, escape, request, redirect, url_for, render_template
 
-from api.followed import getLiveChannels, getPreviewImages, getStreamObjects
-from api.stream import ChannelStream
-from api.games import getTopGames, getGameStreams
+from twitch.followed import getLiveChannels, getPreviewImages, getStreamObjects
+from twitch.stream import ChannelStream
+from twitch.games import getTopGames, getGameStreams
 
 
 app = Flask(__name__)
