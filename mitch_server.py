@@ -3,9 +3,8 @@ from os import urandom
 
 from flask import Flask, session, escape, request, redirect, url_for, render_template
 
-from twitch.followed import getLiveChannels, getPreviewImages, getStreamObjects
-from twitch.stream import ChannelStream
-from twitch.games import getTopGames, getGameStreams
+from following_data import getLiveChannels, getPreviewImages, getStreamObjects
+from game_data import getTopGames, getGameStreams
 
 
 app = Flask(__name__)
@@ -21,9 +20,7 @@ def login():
 @app.route('/following/<username>')
 def following(username):
 	channels = getStreamObjects(getLiveChannels(username))
-	#temp_channel = ChannelStream("witwix")
-	#print(temp_channel.file_url + temp_channel.stream_filepaths[0])
-	return render_template('index.html', channels=channels, username=username)
+	return render_template('following.html', channels=channels, username=username)
 
 @app.route('/channel/<channel>')
 def channel(channel):
@@ -31,12 +28,12 @@ def channel(channel):
 
 @app.route('/games/')
 def gameList():
-	return render_template('games.html', game_list=getTopGames({'limit': 42}))
+	return render_template('games.html', game_list=getTopGames(limit=42))
 
-@app.route('/game/<game_name>')
-def gameChannels(game_name = None):
+@app.route('/games/<game_name>')
+def gameChannels(game_name):
 	if game_name:
-		return render_template('game.html', game_name=game_name, game_channels=getGameStreams({"game": game_name}))
+		return render_template('game.html', game_name=game_name, game_streams=getGameStreams(game_name))
 	return redirect(url_for("gameList"))
 
 #in case we use session in the future
