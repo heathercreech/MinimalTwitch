@@ -36,9 +36,9 @@ class TwitchAPI:
 		except UnsupportedMethodError:
 			print("Method supplied to TwitchAPI.call is not supported: " + method)
 		except requests.exceptions.RequestException as e:
-			print("Requests exception in TwitchAPI.call: " + e)
+			print("Requests exception in TwitchAPI.call\n\t", e)
 		except Exception as e:
-			print("Exception in TwitchAPI.call: " + e)
+			print("Exception in TwitchAPI.call\n\t", e)
 
 			
 if __name__ == "__main__":
