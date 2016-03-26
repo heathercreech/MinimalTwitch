@@ -5,4 +5,5 @@ info.txt
 *.pyc
 *.pyo
 *.mp4
+*.secret
 test_file.py
