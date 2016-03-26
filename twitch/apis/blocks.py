@@ -1,5 +1,3 @@
-import requests
-
 from .api import TwitchAPI
 
 
@@ -16,8 +14,3 @@ def block_user(username, target):
 #requires authorization
 def unblock_user(username, target):
 	return api.call(username + "/blocks/" + target, method="DELETE")
-
-		
-if __name__ == "__main__":
-	print(block_list("witwix"))
-	

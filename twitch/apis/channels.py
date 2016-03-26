@@ -1,5 +1,3 @@
-import requests
-
 from .api import TwitchAPI
 
 
@@ -33,13 +31,16 @@ def run_commercial(channel, **params):
 def get_teams(channel):
 	return api.call(channel + "/teams")
 
+#requires authorization
+def subscribers(channel, **params):
+	return api.call(channel + "/subscriptions", **params)
 
+#requires authorization
+def has_subscriber(channel, username):
+	return api.call(channel + "/subscriptions/" + username)
+
+	
 uapi = TwitchAPI("api", extra_base="api/channels")
 
 def access_token(channel):
 	return uapi.call(channel + "/access_token")
-
-
-if __name__ == "__main__":
-	print(channel_info("witwix"))
-	
