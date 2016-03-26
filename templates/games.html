@@ -14,7 +14,7 @@
 			<div id="StreamPreviews">
 				{% for g in game_list%}
 					<div class="stream-preview-container">
-						<a href="/game/{{ g['game']['name'] }}">
+						<a href="/games/{{ g['game']['name'] }}">
 							<image class="stream-preview" src={{ g["game"]["box"]["large"] }}/>
 						</a>
 					</div>
