@@ -31,12 +31,14 @@ class TwitchAPI:
 				raise requests.exceptions.HTTPError
 			
 			return response.json()
-		except requests.exceptions.HTTPError as e:
+		except requests.exceptions.HTTPError:
 			print("HTTPError: check your API path and make sure it is correct.\n	URL: " + url_target)
 		except UnsupportedMethodError:
 			print("Method supplied to TwitchAPI.call is not supported: " + method)
 		except requests.exceptions.RequestException as e:
-			print("Requests error: " + e)
+			print("Requests exception in TwitchAPI.call: " + e)
+		except Exception as e:
+			print("Exception in TwitchAPI.call: " + e)
 
 			
 if __name__ == "__main__":
