@@ -12,10 +12,10 @@
 	<body>
 		<div id="AppContent">
 			<div id="StreamPreviews">
-				{% for c in game_channels %}
+				{% for s in game_streams %}
 					<div class="stream-preview-container">
-						<a href="/channel/{{ c['channel']['name'] }}">
-							<image class="stream-preview" src={{ c["preview"]["large"] }}/>
+						<a href="/channel/{{ s['channel']['name'] }}">
+							<image class="stream-preview" src="{{ s['preview']['large'] }}"/>
 						</a>
 					</div>
 				{% endfor %}
