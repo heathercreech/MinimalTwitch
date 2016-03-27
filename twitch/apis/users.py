@@ -14,7 +14,7 @@ def subscribed_to(username, channel):
 uapi = TwitchAPI("api", extra_base="api/users")	
 
 def followed_channels(username, **params):
-	return uapi.call(username + "/follows/channels", **params)
+	return uapi.call(username + "/follows/channels", limit=100, **params)
 	
 def followed_games(username, **params):
 	return uapi.call(username + "/follows/games", **params)
