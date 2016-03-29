@@ -47,7 +47,7 @@ def getSecretKey(filepath):
 			sk_file.write(generated_key)
 			return generated_key
 
-def updateJinja(func):
+def registerJinjaFunction(func):
 	app.jinja_env.globals[func.__name__] = func
 	
 if __name__ == '__main__':
