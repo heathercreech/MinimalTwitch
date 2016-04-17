@@ -1,0 +1,11 @@
+<div class="custom-control-container">
+	<div id="info-icon" class="custom-control-icon">
+		<img style="fill:white" src="{{ url_for('static', filename='images/info.svg') }}">
+	</div>
+	
+	<div id="channel-info-popup" class="custom-control-popup">
+		<p class="custom-control-popup-header">Channel Info</p>
+		<p class="custom-control-popup-section">{{ title }}</p>
+		<p class="custom-control-popup-section">{{ game }}</p>
+	</div>
+</div>

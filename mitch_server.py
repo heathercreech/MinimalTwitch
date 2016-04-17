@@ -5,7 +5,7 @@ from flask import Flask, session, escape, request, redirect, url_for, render_tem
 
 from following_data import getLiveChannels, getPreviewImages, getStreamObjects
 from game_data import getTopGames, getGameStreams
-
+from twitch.apis import channels
 
 app = Flask(__name__)
 
@@ -24,7 +24,8 @@ def following(username):
 
 @app.route('/channel/<channel>')
 def channel(channel):
-	return render_template('channel.html', channel=channel)
+	stream_info = channels.channel_info(channel);
+	return render_template('channel.html', channel=channel, title=stream_info["status"], game=stream_info["game"])
 
 @app.route('/games/')
 def gameList():
@@ -52,4 +53,4 @@ def registerJinjaFunction(func):
 	
 if __name__ == '__main__':
 	app.secret_key = getSecretKey('secret_key.cfg')
-	app.run(host='0.0.0.0')
+	app.run(debug=True, host='0.0.0.0')
