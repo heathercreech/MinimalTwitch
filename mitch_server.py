@@ -5,7 +5,7 @@ from flask import Flask, session, escape, request, redirect, url_for, render_tem
 
 from following_data import getLiveChannels, getPreviewImages, getStreamObjects
 from game_data import getTopGames, getGameStreams
-from twitch.apis import channels
+from twitch.apis import streams
 
 app = Flask(__name__)
 
@@ -24,8 +24,8 @@ def following(username):
 
 @app.route('/channel/<channel>')
 def channel(channel):
-	stream_info = channels.channel_info(channel);
-	return render_template('channel.html', channel=channel, title=stream_info["status"], game=stream_info["game"])
+	stream_info = streams.channel_stream(channel)["stream"];
+	return render_template('channel.html', channel=channel, title=stream_info["channel"]["status"], game=stream_info["game"], viewer_count=stream_info["viewers"])
 
 @app.route('/games/')
 def gameList():
